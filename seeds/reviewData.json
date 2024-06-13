@@ -1,0 +1,12 @@
+[
+    {
+        "user_id": "1",
+        "movie_id": "1",
+        "content": "Review content for Fight Club."
+    },
+    {
+        "user_id": "1",
+        "movie_id": "2",
+        "content": "Review content for Star Wars."
+    }
+]
