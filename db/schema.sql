@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS movieClub_db;
-CREATE DATABASE movieClub_db;
+DROP DATABASE IF EXISTS movieclub_db;
+CREATE DATABASE movieclub_db;

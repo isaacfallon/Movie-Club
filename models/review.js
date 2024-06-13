@@ -31,14 +31,14 @@ Review.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        review_date: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // review_date: {
+        //     type: DataTypes.DATE,
+        //     allowNull: false,
+        // },
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'review',
