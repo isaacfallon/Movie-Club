@@ -1,0 +1,12 @@
+{{#if users}}
+{{#each users as |user|}}
+<div class="d-block p-2">
+  <div class="card shadow p-0 mb-2 bg-body-tertiary rounded">
+    <div class="card-header">
+      <h5 class="float-start mt-1">{{user.username}}</h5>
+      <p class="float-end mb-0">{{user.username}}</p>
+    </div>
+  </div>
+</div>
+{{/each}}
+{{/if}}
