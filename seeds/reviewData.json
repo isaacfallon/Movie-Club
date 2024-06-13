@@ -1,0 +1,14 @@
+[
+    {
+        "user_id": "1",
+        "movie_id": "1",
+        "content": "Review content for Star Wars.",
+        "review_date": "13/06/2024"
+    },
+    {
+        "user_id": "1",
+        "movie_id": "2",
+        "content": "Review content for Star Wars",
+        "review_date": "12/06/2024"
+    }
+]
