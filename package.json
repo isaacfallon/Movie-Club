@@ -20,5 +20,6 @@
     "moment": "^2.30.1",
     "pg": "^8.11.3",
     "sequelize": "^6.33.0"
-  }
+  },
+  "devDependencies": {}
 }
