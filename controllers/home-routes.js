@@ -1,42 +1,13 @@
-// /controllers/home-routes.js
 const router = require('express').Router();
-const { Movie } = require('../models'); // Correcting 'movie' to 'Movie' to match the model name
+const { Movie, Review, User } = require('../models');
 
-// Home route
+// Route to fetch all movies and render the homepage
 router.get('/', async (req, res) => {
   try {
-    const movieData = await Movie.findAll({
-      attributes: ['id', 'title', 'year', 'genre']
-    });
-
-    // Serialize data so the template can read it
+    const movieData = await Movie.findAll();
     const movies = movieData.map((movie) => movie.get({ plain: true }));
-
     res.render('homepage', {
       movies,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Route to display a specific movie by ID
-router.get('/movie/:id', async (req, res) => {
-  try {
-    const movieData = await Movie.findByPk(req.params.id, {
-      attributes: ['id', 'title', 'year', 'genre', 'plot', 'director', 'actors']
-    });
-
-    if (!movieData) {
-      res.status(404).json({ message: 'No movie found with this id!' });
-      return;
-    }
-
-    const movie = movieData.get({ plain: true });
-
-    res.render('movie', {
-      ...movie,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -50,7 +21,6 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 
@@ -60,8 +30,40 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('signup');
+});
+
+// Route to fetch a single movie by ID and render the movie detail page
+router.get('/movie/:id', async (req, res) => {
+  try {
+    const movieData = await Movie.findByPk(req.params.id, {
+      include: [
+        {
+          model: Review,
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!movieData) {
+      res.status(404).json({ message: 'No movie found with this id!' });
+      return;
+    }
+
+    const movie = movieData.get({ plain: true });
+
+    res.render('movie-detail', {
+      ...movie,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
