@@ -5,8 +5,8 @@ const reviewRoutes = require('../controllers/api/review-routes');
 const userRoutes = require('../controllers/api/user-routes');
 
 router.use('/', homeRoutes);
-// router.use('/api/movies', movieRoutes);
-// router.use('/api/reviews', reviewRoutes);
-// router.use('/api/users', userRoutes);
+router.use('/api/movies', movieRoutes);
+router.use('/api/reviews', reviewRoutes);
+router.use('/api/users', userRoutes);
 
 module.exports = router;
