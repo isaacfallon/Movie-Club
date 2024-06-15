@@ -1,0 +1,33 @@
+{{!-- content container --}}
+<div class="container p-0">
+  <div class="row">
+    {{!-- movie poster --}}
+    <div class="col-9">
+      <div class="card w-50" data-id="{{movie.id}}" id="movie-card">
+        <img src="{{movie.image}}">
+        <div class="card-body">
+          <h5>{{movie.title}}</h5>
+          <p>{{movie.released}}</p>
+        </div>
+      </div>
+    </div>
+    {{!-- review section --}}
+    <div class="col-3">
+    </div>
+  </div>
+</div>
+
+
+{{!-- reviews section --}}
+
+
+{{!-- review form --}}
+<div class="addreview-card p-2">
+  <form class="addreview-form">
+    <div class="form-group">
+      <label for="review-content" class="mb-1 fs-5">Add a Review</label>
+      <textarea class="form-control" id="review-content" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-1">Submit</button>
+  </form>
+</div>
