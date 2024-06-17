@@ -31,10 +31,6 @@ Review.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // review_date: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        // },
     },
     {
         sequelize,
