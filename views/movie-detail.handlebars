@@ -1,18 +1,44 @@
 {{!-- content container --}}
-<div class="container p-0">
+<div class="container p-0 mt-5 mb-5">
   <div class="row">
     {{!-- movie poster --}}
-    <div class="col-9">
-      <div class="card w-50" data-id="{{movie.id}}" id="movie-card">
+    <div class="col-5">
+      <div class="card w-100 shadow-lg bg-body-tertiary rounded" data-id="{{movie.id}}" id="movie-card">
         <img src="{{movie.image}}">
-        <div class="card-body">
+        {{!-- <div class="card-body">
           <h5>{{movie.title}}</h5>
           <p>{{movie.released}}</p>
-        </div>
+        </div> --}}
       </div>
     </div>
-    {{!-- review section --}}
+    {{!-- movie info section --}}
     <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{movie.title}} ({{format_year movie.released}})</h4>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{movie.genre}}</h6>
+          <p class="card-text">{{movie.plot}}</p>
+        </div>
+      </div>
+      {{!-- <div class="accordion" id="accordian-movie">
+        <div class="accordian-item">
+          <h4 class="accordian-header">
+            <button class="accordian-button" type="button", data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+              Cast
+            </button>
+          </h4>
+          <div id="collapseOne" class="accordian-collapse collapse-show" data-bs-parent="#accordian-movie">
+            <div class="accordian-body">
+              <p>Director: {{movie.director}}</p>
+              <p>Cast: {{movie.actors}}</p>
+            </div>
+          </div>
+        </div>
+      </div> --}}
+      
+    </div>
+    {{!-- review section --}}
+    <div class="col-4">
       {{#if movie.review}}
         {{#each movie.review as |review|}}
           {{> userreviews}}
@@ -23,12 +49,17 @@
 </div>
 
 {{!-- review form --}}
-<div class="addreview-card p-2">
-  <form class="addreview-form">
-    <div class="form-group">
-      <label for="review-content" class="mb-1 fs-5">Add a Review</label>
-      <textarea class="form-control" id="review-content" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mt-1">Submit</button>
-  </form>
+<div class="d-flex justify-content-center mt-5">
+  <div class="addreview-card w-50 shadow rounded p-3">
+    <form class="addreview-form">
+      <div class="form-group">
+        <label for="review-content" class="mb-1 fs-5">Add a Review</label>
+        <textarea class="form-control" id="review-content" rows="3"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary mt-2 float-start">Submit</button>
+        <button type="button" class="btn btn-danger mt-2 float-end">Clear</button>
+      </div>
+    </form>
+  </div>
 </div>
