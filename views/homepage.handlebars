@@ -1,24 +1,26 @@
 {{!-- rendering countdown timer --}}
-<p class="text-center" id="countdown"></p>
+<p class="text-center" id="">Time until next movie rotation:</p>
+<p class="text-center">{{week_countdown}}</p>
 
 {{!-- rendering movie posters --}}
 {{#if movies}}
-  <div class="container">
-    <div class="row justify-content-evenly">
-      {{#each movies as |movie|}}
-      <div class="col-5">
-        <div class="card">
-          <img src="{{movie.image}}">
-          <div class="card-body">
-            <h5>{{movie.title}}</h5>
-            <p>{{movie.released}}</p>
-            <a href="/movie/{{id}}" class="stretched-link"></a>
-          </div>
+<div class="container">
+  <div class="row justify-content-evenly">
+    {{#each movies as |movie|}}
+    <div class="col-5">
+      <div class="card">
+        <img src="{{movie.image}}">
+        <div class="card-body">
+          <h5>{{movie.title}}</h5>
+          <p>{{movie.released}}</p>
+          <a href="/movie/{{id}}" class="stretched-link"></a>
         </div>
       </div>
-      {{/each}}
     </div>
+    {{/each}}
   </div>
+</div>
 {{/if}}
 
-<script src="/js/countdown.js"></script>
+{{!--
+<script src="/js/countdown.js"></script> --}}
