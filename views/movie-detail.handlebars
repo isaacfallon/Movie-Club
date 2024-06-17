@@ -13,13 +13,14 @@
     </div>
     {{!-- review section --}}
     <div class="col-3">
+      {{#if movie.review}}
+        {{#each movie.review as |review|}}
+          {{> userreviews}}
+        {{/each}}
+      {{/if}}
     </div>
   </div>
 </div>
-
-
-{{!-- reviews section --}}
-
 
 {{!-- review form --}}
 <div class="addreview-card p-2">
