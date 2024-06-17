@@ -8,7 +8,8 @@ router.get('/', async (req, res) => {
     const movies = movieData.map((movie) => movie.get({ plain: true }));
     res.render('homepage', {
       movies,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      logged_in_username: req.session.username
     });
   } catch (err) {
     res.status(500).json(err);
@@ -58,7 +59,7 @@ router.get('/movie/:id', async (req, res) => {
     const movie = movieData.get({ plain: true });
 
     res.render('movie-detail', {
-      ...movie,
+      movie,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
