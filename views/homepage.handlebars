@@ -1,6 +1,8 @@
 {{!-- rendering countdown timer --}}
-<p class="text-center" id="">Time until next movie rotation:</p>
-<p class="text-center">{{week_countdown}}</p>
+<div class="mt-5 mb-5" id="countdown-timer">
+  <h3 class="text-center" id="">Time until next movie rotation:</h3>
+  <h2 class="text-center p-2">{{week_countdown}}</h2>
+</div>
 
 {{!-- rendering movie posters --}}
 {{#if movies}}
@@ -8,11 +10,10 @@
   <div class="row justify-content-evenly">
     {{#each movies as |movie|}}
     <div class="col-5">
-      <div class="card">
-        <img src="{{movie.image}}">
+      <div class="card shadow-lg bg-body-tertiary rounded">
+        <img src="{{movie.image}}" class="mb-2">
         <div class="card-body">
-          <h5>{{movie.title}}</h5>
-          <p>{{movie.released}}</p>
+          <h4 class="text-center">{{movie.title}} ({{format_year movie.released}})</h4>
           <a href="/movie/{{id}}" class="stretched-link"></a>
         </div>
       </div>
