@@ -28,7 +28,12 @@ router.get('/:id', async (req, res) => {
 // POST a new review
 router.post('/', async (req, res) => {
     try {
-        const newReview = await Review.create(req.body);
+        const parsedID = parseInt(req.body.movie_id);
+        const newReview = await Review.create({
+            content: req.body.content,
+            user_id: req.session.user_id,
+            movie_id: parsedID,
+        });
         res.status(200).json(newReview);
     } catch (err) {
         res.status(400).json(err);

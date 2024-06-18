@@ -23,7 +23,8 @@
       {{!-- <div class="accordion" id="accordian-movie">
         <div class="accordian-item">
           <h4 class="accordian-header">
-            <button class="accordian-button" type="button", data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+            <button class="accordian-button" type="button" , data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
               Cast
             </button>
           </h4>
@@ -35,12 +36,12 @@
           </div>
         </div>
       </div> --}}
-      
+
     </div>
     {{!-- review section --}}
     <div class="col-4">
-      {{#if movie.review}}
-      {{#each movie.review as |review|}}
+      {{#if movie.reviews}}
+      {{#each movie.reviews as |review|}}
       {{> userreviews}}
       {{/each}}
       {{/if}}
@@ -65,3 +66,5 @@
   </div>
 </div>
 {{/if}}
+
+<script src="/js/review.js"></script>

@@ -57,36 +57,40 @@ router.get('/movie/:id', async (req, res) => {
     }
 
     const movie = movieData.get({ plain: true });
+    // console.log(movie)
 
     res.render('movie-detail', {
       movie,
       logged_in: req.session.logged_in,
+      logged_in_username: req.session.username
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/reviews', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     const reviewData = await Review.findAll({
+      where: { user_id: req.session.user_id },
       include: [
         {
-          model: Movie,
-          attributes: ['title', 'posterUrl'],
+          model: User,
+          attributes: ['username']
         },
         {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
+          model: Movie,
+          attributes: ['title']
+        }
+      ]
+    })
 
-    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    const reviews = reviewData.map((project) => project.get({ plain: true }));
 
-    res.render('reviews', {
+    res.render('dashboard', {
       reviews,
       logged_in: req.session.logged_in,
+      logged_in_username: req.session.username
     });
   } catch (err) {
     res.status(500).json(err);
