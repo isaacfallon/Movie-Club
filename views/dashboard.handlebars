@@ -1,0 +1,9 @@
+<h3>Dashboard - My Reviews:</h3>
+
+{{#each reviews as |review| }}
+<div class="card p-2 m-4">
+    <h4>Review for: {{review.movie.title}}</h4>
+    <p>{{review.content}}</p>
+    <p>Review published on: {{format_dateAndTime createdAt}}</p>
+</div>
+{{/each}}

@@ -12,7 +12,7 @@
         <img src="{{movie.image}}">
         <div class="card-body">
           <h5>{{movie.title}}</h5>
-          <p>{{movie.released}}</p>
+          <p>Release date: {{format_date movie.released}}</p>
           <a href="/movie/{{id}}" class="stretched-link"></a>
         </div>
       </div>
