@@ -6,10 +6,13 @@ moment().format();
 
 module.exports = {
     format_time: (date) => {
-        // return date.toLocaleTimeString();
         return moment(date).format('h:mm:ss a');
     },
     format_date: (date) => {
+        return moment(date).format('MMMM Do YYYY');
+        // return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    },
+    format_dateAndTime: (date) => {
         return moment(date).format('MMMM Do YYYY, h:mm:ss a');
     },
     week_countdown: () => {
