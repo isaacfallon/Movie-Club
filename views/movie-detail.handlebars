@@ -5,38 +5,53 @@
     <div class="col-5">
       <div class="card w-100 shadow-lg bg-body-tertiary rounded" data-id="{{movie.id}}" id="movie-card">
         <img src="{{movie.image}}">
-        {{!-- <div class="card-body">
-          <h5>{{movie.title}}</h5>
-          <p>{{movie.released}}</p>
-        </div> --}}
       </div>
     </div>
     {{!-- movie info section --}}
     <div class="col-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">{{movie.title}} ({{format_year movie.released}})</h4>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{movie.genre}}</h6>
-          <p class="card-text">{{movie.plot}}</p>
-        </div>
+      <div class="mb-5">
+        <h1>{{movie.title}}</h1>
       </div>
-      {{!-- <div class="accordion" id="accordian-movie">
-        <div class="accordian-item">
-          <h4 class="accordian-header">
-            <button class="accordian-button" type="button" , data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              Cast
-            </button>
-          </h4>
-          <div id="collapseOne" class="accordian-collapse collapse-show" data-bs-parent="#accordian-movie">
-            <div class="accordian-body">
-              <p>Director: {{movie.director}}</p>
-              <p>Cast: {{movie.actors}}</p>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="true">Details</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#cast-tab-pane" type="button" role="tab" aria-controls="cast-tab-pane" aria-selected="false">Cast And Crew</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="misc-tab" data-bs-toggle="tab" data-bs-target="#misc-tab-pane" type="button" role="tab" aria-controls="misc-tab-pane" aria-selected="false">Misc</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body">
+              <p class="ms-2 mt-2">{{movie.plot}}</p>
+              <p class="ms-2"><strong>Genres: </strong>{{movie.genre}}</p>
             </div>
           </div>
         </div>
-      </div> --}}
-
+        <div class="tab-pane fade" id="cast-tab-pane" role="tabpanel" aria-labelledby="cast-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body">
+              <p class="ms-2 mt-2"><strong>Director: </strong>{{movie.director}}</p>
+              <p class="ms-2"><strong>Cast: </strong>{{movie.actors}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="misc-tab-pane" role="tabpanel" aria-labelledby="misc-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body"> 
+              <p class="ms-2 mt-2"><strong>Released: </strong>{{format_date movie.released}}</p>
+              <p class="ms-2"><strong>Rating: </strong>{{movie.rated}}</p>
+              <p class="ms-2"><strong>Runtime: </strong>{{movie.runtime}}</p>
+              <p class="ms-2"><strong>IMDB Rating: </strong>{{movie.rated}}/10</p>
+            </div>
+          </div>
+        </div>
+      </div>    
     </div>
     {{!-- review section --}}
     <div class="col-4">
