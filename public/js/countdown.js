@@ -1,28 +1,28 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+const countdownTimer = document.getElementById(`countdown`);
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+let currentTime = moment();
+let endOfWeek = moment().endOf(`week`);
+let timeLeft = endOfWeek - currentTime;
+let timeLeftInSeconds = timeLeft / 1000; // timeleft is given in milliseconds
+let duration = moment.duration(timeLeftInSeconds, `seconds`);
+const interval = 1000; // 1 second
 
-  // Get today's date and time
-  var now = new Date().getTime();
+// let formattedCurrentTime = moment().format(`D/M/YYYY`);
+// let formattedEndOfWeek = moment(endOfWeek).format(`D/M/YYYY`);
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+// console.log(formattedCurrentTime);
+// console.log(formattedEndOfWeek);
+// console.log(timeLeft);
+// console.log(timeLeftInSeconds);
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById(`countdown`).innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById(`countdown`).innerHTML = "EXPIRED";
+setInterval(function() {
+  if(duration.asSeconds() <= 0) {
+    //do something
   }
-}, 1000);
+
+  duration = moment.duration(duration.asSeconds() - 1, `seconds`);
+
+  let count = duration.days() + ` Days, ` + duration.hours() + ` Hours, ` + duration.minutes() + ` Minutes, ` + duration.seconds() + ` Seconds`;
+
+  countdownTimer.innerHTML = count;
+}, interval); 

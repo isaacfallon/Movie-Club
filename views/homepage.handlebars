@@ -1,7 +1,11 @@
+{{!-- moments script renders first so library can be used --}}
+<script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+
 {{!-- rendering countdown timer --}}
 <div class="mt-5 mb-5" id="countdown-timer">
   <h3 class="text-center" id="">Time until next movie rotation:</h3>
   <h2 class="text-center p-2">{{week_countdown}}</h2>
+  <h2 class="text-center" id="countdown"></h2>
 </div>
 
 {{!-- rendering movie posters --}}
@@ -13,7 +17,7 @@
       <div class="card shadow-lg bg-body-tertiary rounded">
         <img src="{{movie.image}}" class="mb-2">
         <div class="card-body">
-          <h4 class="text-center">{{movie.title}} ({{format_year movie.released}})</h4>
+          <h4 class="text-center">{{movie.title}} ({{format_date movie.released}})</h4>
           <a href="/movie/{{id}}" class="stretched-link"></a>
         </div>
       </div>
@@ -23,5 +27,4 @@
 </div>
 {{/if}}
 
-{{!--
-<script src="/js/countdown.js"></script> --}}
+<script src="/js/countdown.js"></script>
