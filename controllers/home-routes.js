@@ -80,7 +80,6 @@ router.get('/dashboard', async (req, res) => {
         },
         {
           model: Movie,
-          attributes: ['title']
         }
       ]
     })
