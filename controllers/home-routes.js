@@ -67,4 +67,30 @@ router.get('/movie/:id', async (req, res) => {
   }
 });
 
+router.get('/reviews', async (req, res) => {
+  try {
+    const reviewData = await Review.findAll({
+      include: [
+        {
+          model: Movie,
+          attributes: ['title', 'posterUrl'],
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+
+    res.render('reviews', {
+      reviews,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
