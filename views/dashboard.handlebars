@@ -1,9 +1,20 @@
-<h3>Dashboard - My Reviews:</h3>
+<h3 class="p-3 mt-5 mb-3">Dashboard - My Reviews:</h3>
 
 {{#each reviews as |review| }}
-<div class="card p-2 m-4">
-    <h4>Review for: {{review.movie.title}}</h4>
-    <p>{{review.content}}</p>
-    <p>Review published on: {{format_dateAndTime createdAt}}</p>
+<div class="p-3">
+    <div class="card">
+        <div class="card-title ms-3 mt-2">
+            <h4>Review for: {{review.movie.title}}</h4>
+        </div>
+        <div class="card-body">
+            <p>{{review.content}}</p>
+            <p>Review published on: {{format_dateAndTime createdAt}}</p>
+            <a href="/movie/{{movie.id}}" class="stretched-link"></a>
+        </div>
+    </div>
+    <div class="p-0 mt-2">
+        <button type="button" class="btn btn-secondary me-5" id="update-button">Update</button>
+        <button type="button" class="btn btn-danger ms-5" id="delete-button">Delete</button>
+    </div>
 </div>
 {{/each}}
