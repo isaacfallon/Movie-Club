@@ -24,3 +24,11 @@ const reviewForm = async function (event) {
 document
     .querySelector('.addreview-form')
     .addEventListener('submit', reviewForm);
+
+const clearReviewForm = function() {
+    document.querySelector('#review-content').value = '';
+};
+
+document
+    .querySelector('#clear-button')
+    .addEventListener('click', clearReviewForm);
