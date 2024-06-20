@@ -1,8 +1,11 @@
-<div class="d-block">
-  <div class="card shadow-sm p-0 mb-2 bg-body-tertiary rounded" data-id="{{user_id}}">
+<div class="d-block review-cards mb-4">
+  <div class="card shadow-sm p-0 mb-2 bg-body-tertiary rounded" data-userId="{{user_id}}">
     <div class="card-body">
-      <p>{{content}}</p>
-      <p class="float-end">- {{user.username}} on {{format_dateAndTime updatedAt}}</p>
+      <p class="user-review">{{content}}</p>
+      <p class="float-end review-timestamp">- {{user.username}} on {{format_dateAndTime updatedAt}}</p>
+    </div>
+    <div class="mb-1 me-1">
+      <a href="" class="card-text float-end"><small class="text-body-secondary">reply</small></a>
     </div>
   </div>
 </div>

@@ -62,7 +62,8 @@ router.get('/movie/:id', async (req, res) => {
     res.render('movie-detail', {
       movie,
       logged_in: req.session.logged_in,
-      logged_in_username: req.session.username
+      logged_in_username: req.session.username,
+      logged_in_id: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
