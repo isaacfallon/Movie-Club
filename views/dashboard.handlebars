@@ -14,7 +14,9 @@
     </div>
     <div class="p-0 mt-2">
         <button type="button" class="btn btn-secondary me-5" id="update-button">Update</button>
-        <button type="button" class="btn btn-danger ms-5" id="delete-button">Delete</button>
+        <button type="button" class="btn btn-danger ms-5 delete-button" data-review-id="{{review.id}}">Delete</button>
     </div>
 </div>
 {{/each}}
+
+<script src="/js/delete.js"></script>
