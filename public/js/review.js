@@ -64,6 +64,7 @@ document
     .querySelector('.addreview-form')
     .addEventListener('submit', reviewForm);
 
+
 // replying to reviews
 const replyButtons = document.querySelectorAll(`.review-replies`);
 const replyCards = document.querySelectorAll(`.reply-card`);
@@ -78,3 +79,11 @@ for(let i = 0; i < replyButtons.length; i++) {
         replyCards[i].classList.add(`d-none`);
     });
 };
+
+const clearReviewForm = function() {
+    document.querySelector('#review-content').value = '';
+};
+
+document
+    .querySelector('#clear-button')
+    .addEventListener('click', clearReviewForm);
