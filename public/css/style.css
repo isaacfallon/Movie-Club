@@ -3,3 +3,15 @@ h1 {
   font-size: 400%;
   color: black;
 }
+
+.user-review {
+  font-size: 150%;
+}
+
+.review-timestamp {
+  font-size: 90%;
+}
+
+#movie-title {
+  font-size: 275%;
+}

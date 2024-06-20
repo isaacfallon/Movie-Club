@@ -2,15 +2,15 @@
 <div class="container p-0 mt-5 mb-5">
   <div class="row">
     {{!-- movie poster --}}
-    <div class="col-5">
+    <div class="col align-self-center">
       <div class="card w-100 shadow-lg bg-body-tertiary rounded" data-id="{{movie.id}}" id="movie-card">
         <img src="{{movie.image}}">
       </div>
     </div>
     {{!-- movie info section --}}
-    <div class="col-3">
+    <div class="col">
       <div class="mb-5">
-        <h1>{{movie.title}}</h1>
+        <h2 id="movie-title" class="text-center">{{movie.title}}</h2>
       </div>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -53,15 +53,16 @@
         </div>
       </div>    
     </div>
-    {{!-- review section --}}
-    <div class="col-4">
-      {{#if movie.reviews}}
-      {{#each movie.reviews as |review|}}
-      {{> userreviews}}
-      {{/each}}
-      {{/if}}
-    </div>
   </div>
+</div>
+
+{{!-- review section --}}
+<div class="justify-content-center p-3 ms-5 me-5" data-loggedInId="{{logged_in_id}}" id="comment-column">
+  {{#if movie.reviews}}
+    {{#each movie.reviews as |review|}}
+      {{> userreviews}}
+    {{/each}}
+  {{/if}}
 </div>
 
 {{!-- review form --}}
