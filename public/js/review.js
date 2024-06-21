@@ -13,13 +13,13 @@ const reviewsColumn = document.getElementById(`comment-column`);
 const loggedInId = reviewsColumn.getAttribute(`data-loggedInId`);
 
 // checking if the logged in users id matches the review users id
-for(let i = 0; i < reviews.length; i++) {
+for (let i = 0; i < reviews.length; i++) {
     let reviewId = reviews[i].getAttribute(`data-userId`);
-    if(reviewId === loggedInId) {
+    if (reviewId === loggedInId) {
         const updateButton = document.querySelectorAll(`.update-review`)[i];
         const deleteButton = document.querySelectorAll(`.delete-review`)[i];
         // console.log(`got buttons`);
-        if(updateButton && deleteButton) {
+        if (updateButton && deleteButton) {
             updateButton.classList.remove(`d-none`);
             deleteButton.classList.remove(`d-none`);
             // showing update form on click
@@ -70,7 +70,7 @@ const replyButtons = document.querySelectorAll(`.review-replies`);
 const replyCards = document.querySelectorAll(`.reply-card`);
 const replyCancel = document.querySelectorAll(`.cancel-reply`);
 
-for(let i = 0; i < replyButtons.length; i++) {
+for (let i = 0; i < replyButtons.length; i++) {
     replyButtons[i].addEventListener(`click`, () => {
         replyCards[i].classList.remove(`d-none`);
     });
@@ -80,7 +80,7 @@ for(let i = 0; i < replyButtons.length; i++) {
     });
 };
 
-const clearReviewForm = function() {
+const clearReviewForm = function () {
     document.querySelector('#review-content').value = '';
 };
 

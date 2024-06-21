@@ -1,44 +1,50 @@
 <div class="d-block review-cards mb-4" data-userId="{{user_id}}">
-  <div class="card shadow-sm p-0 mb-2 bg-body-tertiary rounded">
-    <div class="card-body">
-      <p class="user-review">{{content}}</p>
-      <p class="float-end review-timestamp">- {{user.username}} on {{format_dateAndTime updatedAt}}</p>
-    </div>
-    <div class="mb-1 me-1">
-      {{!-- <a href="" class="card-text float-end"><small class="text-body-secondary">reply</small></a> --}}
-      <button type="button" class="btn text-decoration-none float-start review-replies">reply</button>
-      <button type="button" class="btn text-decoration-none float-end text-danger d-none delete-review">delete</button>
-      <button type="button" class="btn text-decoration-none float-end text-info d-none update-review">update</button>
-    </div>
-    {{!-- reply card --}}
-    <div class="d-flex justify-content-center mt-5 d-none reply-card">
-        <div class="w-50 shadow rounded p-3">
-            <form class="reply-form">
-                <div class="form-group">
-                    <label for="reply-content" class="mb-1 fs-5">Comment on This Review</label>
-                    <textarea class="form-control" id="reply-content" rows="3"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary mt-2 float-start">Submit</button>
-                    <button type="button" class="btn btn-danger mt-2 float-end cancel-reply">Cancel</button>
-                </div>
-            </form>
+    <div class="card shadow-sm p-0 mb-2 bg-body-tertiary rounded">
+        <div class="card-body">
+            <p class="user-review">{{content}}</p>
+            <p class="float-end review-timestamp">- {{user.username}} on {{format_dateAndTime updatedAt}}</p>
         </div>
-    </div>
+        <div class="mb-1 me-1">
+            {{!-- <a href="" class="card-text float-end"><small class="text-body-secondary">reply</small></a> --}}
+            {{!-- <button type="button" class="btn text-decoration-none float-start review-replies">reply</button> --}}
+            <button type="button"
+                class="btn text-decoration-none float-end text-danger d-none delete-review delete-button"
+                data-review-id="{{id}}">Delete</button>
+            <a href="/dashboard"><button type="button"
+                    class="btn text-decoration-none float-end text-info d-none update-review">Update your
+                    review at the dashboard</button></a>
+
+        </div>
+        {{!-- reply card --}}
+        {{!-- <div class="d-flex justify-content-center mt-5 d-none reply-card">
+            <div class="w-50 shadow rounded p-3">
+                <form class="reply-form">
+                    <div class="form-group">
+                        <label for="reply-content" class="mb-1 fs-5">Comment on This Review</label>
+                        <textarea class="form-control" id="reply-content" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary mt-2 float-start">Submit</button>
+                        <button type="button" class="btn btn-danger mt-2 float-end cancel-reply">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div> --}}
         {{!-- update card --}}
-    <div class="d-flex justify-content-center mt-5 d-none update-card">
-        <div class="w-50 shadow rounded p-3">
-            <form class="update-form">
-                <div class="form-group">
-                    <label for="update-content" class="mb-1 fs-5">Update Your Review</label>
-                    <textarea class="form-control" id="update-content" rows="3">{{content}}</textarea>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary mt-2 float-start">Submit</button>
-                    <button type="button" class="btn btn-danger mt-2 float-end cancel-update">Cancel</button>
-                </div>
-            </form>
+        <div class="d-flex justify-content-center mt-5 d-none update-card">
+            <div class="w-50 shadow rounded p-3">
+                <form class="update-form">
+                    <div class="form-group">
+                        <label for="update-content" class="mb-1 fs-5">Update Your Review</label>
+                        <textarea class="form-control" id="update-content" rows="3">{{content}}</textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary mt-2 float-start update-submit"
+                            data-review-id="{{id}}">Submit</button>
+                        <button type="button" class="btn btn-danger mt-2 float-end cancel-update">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-  </div>
 </div>

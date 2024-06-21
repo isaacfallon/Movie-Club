@@ -2,7 +2,7 @@
 
 {{#each reviews as |review| }}
 <div class="p-3 review-cards">
-    <div class="card">
+    <div class="card" data-id="{{review.id}}" id="review-card">
         <div class="card-title ms-3 mt-2">
             <h4>Review for: {{review.movie.title}}</h4>
         </div>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="p-0 mt-2">
-        <button type="button" class="btn btn-secondary me-5" id="update-button">Update</button>
+        <button type="button" class="btn btn-secondary me-5 update-button" id="update-button">Update</button>
         <button type="button" class="btn btn-danger ms-5 delete-button" data-review-id="{{review.id}}">Delete</button>
     </div>
     {{!-- update card --}}
@@ -25,7 +25,8 @@
                     <textarea class="form-control" id="update-content" rows="3">{{review.content}}</textarea>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary mt-2 float-start">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-2 float-start update-submit"
+                        data-review-id="{{review.id}}">Submit</button>
                     <button type="button" class="btn btn-danger mt-2 float-end cancel-update">Cancel</button>
                 </div>
             </form>
@@ -37,5 +38,6 @@
 
 <script src="/js/delete.js"></script>
 
-<script src="/js/dashboard.js"></script>
+<script src="/js/update.js"></script>
 
+<script src="/js/dashboard.js"></script>
