@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'DELETE'
                 });
                 if (response.ok) {
-                    button.closest('.p-3').remove();
-                } 
+                    // button.closest('.p-3').remove();
+                    document.location.reload();
+                }
             } catch (err) {
                 alert('Failed to delete review');
             }

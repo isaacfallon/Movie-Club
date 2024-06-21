@@ -15,17 +15,21 @@
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="true">Details</button>
+          <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane"
+            type="button" role="tab" aria-controls="details-tab-pane" aria-selected="true">Details</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#cast-tab-pane" type="button" role="tab" aria-controls="cast-tab-pane" aria-selected="false">Cast And Crew</button>
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#cast-tab-pane" type="button"
+            role="tab" aria-controls="cast-tab-pane" aria-selected="false">Cast And Crew</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="misc-tab" data-bs-toggle="tab" data-bs-target="#misc-tab-pane" type="button" role="tab" aria-controls="misc-tab-pane" aria-selected="false">Misc</button>
+          <button class="nav-link" id="misc-tab" data-bs-toggle="tab" data-bs-target="#misc-tab-pane" type="button"
+            role="tab" aria-controls="misc-tab-pane" aria-selected="false">Misc</button>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab"
+          tabindex="0">
           <div class="card">
             <div class="card-body">
               <p class="ms-2 mt-2">{{movie.plot}}</p>
@@ -43,7 +47,7 @@
         </div>
         <div class="tab-pane fade" id="misc-tab-pane" role="tabpanel" aria-labelledby="misc-tab" tabindex="0">
           <div class="card">
-            <div class="card-body"> 
+            <div class="card-body">
               <p class="ms-2 mt-2"><strong>Released: </strong>{{format_date movie.released}}</p>
               <p class="ms-2"><strong>Rating: </strong>{{movie.rated}}</p>
               <p class="ms-2"><strong>Runtime: </strong>{{movie.runtime}}</p>
@@ -51,7 +55,7 @@
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   </div>
 </div>
@@ -59,9 +63,9 @@
 {{!-- review section --}}
 <div class="justify-content-center p-3 ms-5 me-5" data-loggedInId="{{logged_in_id}}" id="comment-column">
   {{#if movie.reviews}}
-    {{#each movie.reviews as |review|}}
-      {{> userreviews}}
-    {{/each}}
+  {{#each movie.reviews as |review|}}
+  {{> userreviews}}
+  {{/each}}
   {{/if}}
 </div>
 
@@ -71,7 +75,7 @@
   <div class="addreview-card w-50 shadow rounded p-3">
     <form class="addreview-form">
       <div class="form-group">
-        <label for="review-content" class="mb-1 fs-5">Add a Review</label>
+        <label for="review-content" class="mb-1 fs-5">Add a Review </label>
         <textarea class="form-control" id="review-content" rows="3"></textarea>
       </div>
       <div>
@@ -84,3 +88,5 @@
 {{/if}}
 
 <script src="/js/review.js"></script>
+
+<script src="/js/delete.js"></script>
